@@ -8,6 +8,9 @@
     "dev": "rimraf bin && rollup -c rollup.config.js -w",
     "build": "rimraf bin && rollup -c rollup.config.js"
   },
+  "bin": {
+    "library-cli": "./bin/www.js"
+  },
   "keywords": [
     "rollup",
     "ts",

@@ -1,1 +1,4 @@
-console.log('Hello World!');
+#!/usr/bin/env node
+
+
+console.log('hello rollup-library-ts')
