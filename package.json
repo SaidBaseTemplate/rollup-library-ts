@@ -1,0 +1,36 @@
+{
+  "name": "rollup-library-ts",
+  "version": "0.0.1",
+  "description": "rollup library ts template",
+  "main": "bin/www.js",
+  "type": "module",
+  "scripts": {
+    "dev": "rimraf bin && rollup -c rollup.config.js -w",
+    "build": "rimraf bin && rollup -c rollup.config.js"
+  },
+  "keywords": [
+    "rollup",
+    "ts",
+    "library",
+    "template",
+    "base"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SaidBaseTemplate/rollup-library-ts.git"
+  },
+  "author": "guizimo",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/preset-env": "^7.24.7",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "rimraf": "^5.0.7",
+    "rollup": "^4.18.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "tslib": "^2.6.3",
+    "typescript": "^5.4.5"
+  }
+}
