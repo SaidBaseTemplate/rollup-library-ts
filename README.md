@@ -1,48 +1,55 @@
 # rollup-library-ts
-rollup+Ts快速开发库、插件模板
+`Rollup+Ts`项目模板，可用于快速开发命令行工具、库、插件等。
 
+### 开发
 
-### 安装
-```
+安装依赖
+
+```shell
 pnpm i
 ```
 
-### 开发
-```
+运行
+
+```shell
 pnpm run dev
 ```
 
-### 打包
-```
+打包生成构建产物
+
+```shell
 pnpm run build
 ```
-  
-### 本地安装
+
+本地软链接命令调试
+
+```shell
+pnpm run link
 ```
+
+### 调试
+
+把命令注册到全局，方便调试使用
+
+```shell
 npm link
 ```
 
-### 测试命令
-```
-pnpm run test
-```
+查看所有被链接的全局 `Node.js` 包
 
-### 这个命令会列出所有被链接的全局 Node.js 包
-```
+```shell
 npm ls- g --link
 ```
-### 这个命令会列出所有被链接的全局 Node.js 包
-```
-npm ls- g --link
-```
-删除链接
-如果您想删除某个已经创建的链接,可以运行以下两个命令:
-复制
-### 删除项目中的链接
+删除项目中的链接
+
+```shell
 npm unlink
-### 删除全局的链接
-npm unlink -g <package-name>
+```
 
-```angular2html
+删除全局的链接
+
+```shell
 npm unlink -g  rollup-library-ts
 ```
+
+
