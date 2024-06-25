@@ -3,4 +3,7 @@
 .output.js
 /node_modules/**
 
+*.yaml
+*.md
+*.json
 bin
