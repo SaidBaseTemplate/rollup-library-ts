@@ -8,7 +8,9 @@
     "dev": "rimraf bin && rollup -c rollup.config.js -w",
     "build": "rimraf bin && rollup -c rollup.config.js",
     "test:link": "npm unlink -g rollup-library-ts && npm link",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
   },
   "bin": {
     "rollup-library-ts": "./bin/www.js"
@@ -35,6 +37,8 @@
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-json": "^6.1.0",
     "@types/inquirer": "^9.0.7",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
     "prettier": "^3.3.2",
     "rimraf": "^5.0.7",
     "rollup": "^4.18.0",
@@ -46,5 +50,8 @@
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
     "inquirer": "^9.2.23"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,json}": "prettier --write ."
   }
 }
