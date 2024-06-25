@@ -3,7 +3,6 @@ import babel from '@rollup/plugin-babel';
 import alias from '@rollup/plugin-alias';
 import path from 'path';
 import json from '@rollup/plugin-json';
-import commonjs from '@rollup/plugin-commonjs';
 
 const projectRootDir = path.dirname(import.meta.url);
 
@@ -12,7 +11,6 @@ export default [
     input: 'src/main.ts',
     plugins: [
       json(),
-      // commonjs(),
       typescript(),
       babel({
         babelrc: false,

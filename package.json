@@ -12,8 +12,6 @@
     "release": "standard-version",
     "release:major": "standard-version --release-as major",
     "release:minor": "standard-version --release-as minor",
-    "changelog:all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "changelog:last-tag": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "prepare": "husky install"
   },
   "bin": {
@@ -44,7 +42,6 @@
     "@rollup/plugin-json": "^6.1.0",
     "@types/inquirer": "^9.0.7",
     "commitizen": "^4.3.0",
-    "conventional-changelog-cli": "^5.0.0",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
