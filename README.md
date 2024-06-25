@@ -1,5 +1,4 @@
-
-<p align="center" style="font-size: 30px; font-weight: bold">rollup-library-ts</p>
+<div align="center"><h1>rollup-library-ts</h1></div>
 
 <p align="center">
   <a href="https://github.com/SaidBaseTemplate/rollup-library-ts"><img src="https://img.shields.io/badge/Packing-Rollup-FF3333
@@ -12,6 +11,7 @@
 </p>
 
 ## ✨ 介绍
+
 `rollup-library-ts` 是一个基于 `Rollup` 和 `TypeScript` 的项目模板，可用于快速开发命令行工具、库、插件等。该模板与 `said-cli` 脚手架配套使用，旨在简化项目初始化和开发过程。
 
 ### Rollup
@@ -132,7 +132,5 @@ my-lib
 
 - **Email**: 17680262548@163.com
 - **GitHub Issues**: [这里](https://github.com/SaidBaseTemplate/rollup-library-ts/issues)
-
-
 
 感谢你使用 `rollup-library-ts`！希望它能帮助你更快地启动和开发项目。

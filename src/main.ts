@@ -1,25 +1,25 @@
 #!/usr/bin/env node
-import { program } from "commander";
-import Commands from "@/common/Commands";
-import myPkg from "../package.json";
-import Logger from "@/utils/Logger";
-import execs from "@/exec/index";
+import { program } from 'commander';
+import Commands from '@/common/Commands';
+import myPkg from '../package.json';
+import Logger from '@/utils/Logger';
+import execs from '@/exec/index';
 
 function main() {
   // 初始化日志
-  const logger = new Logger()
+  const logger = new Logger();
 
   // 初始化命令行参数
-  program.name("rollup-library-ts").description("A cli tool for library")
+  program.name('rollup-library-ts').description('A cli tool for library');
 
   // 设置命令在前，选项在后
-  program.version("rollup-library-ts" + "@" + myPkg.version).usage("<command> [option]")
+  program.version('rollup-library-ts' + '@' + myPkg.version).usage('<command> [option]');
 
   // 初始化命令行参数
-  const commands = new Commands()
-  const commandResolves: any = commands.resolve()
+  const commands = new Commands();
+  const commandResolves: any = commands.resolve();
   for (let key in commandResolves) {
-    const { alias, description } = commandResolves[key]
+    const { alias, description } = commandResolves[key];
     program
       .command(key) // 注册命令
       .alias(alias) // 配置命令别名
@@ -27,13 +27,13 @@ function main() {
       .action(function (name, { args }) {
         try {
           // 除了上述的命令，其他统统匹配到这里
-          if (key === "*") return logger.error(description)
+          if (key === '*') return logger.error(description);
           // @ts-ignore
-          return execs[key](args)
+          return execs[key](args);
         } catch (e) {
-          logger.error('Unrecognized commands "' + key + '".')
+          logger.error('Unrecognized commands "' + key + '".');
         }
-      })
+      });
   }
 
   // 解析命令行参数
@@ -41,4 +41,4 @@ function main() {
   program.parse(program.argv);
 }
 
-main()
+main();

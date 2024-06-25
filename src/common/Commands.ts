@@ -1,8 +1,8 @@
 export default class Commands {
-  main: string
+  main: string;
 
   constructor() {
-    this.main = "rollup-library-ts"
+    this.main = 'rollup-library-ts';
   }
 
   /**
@@ -11,10 +11,10 @@ export default class Commands {
   resolve() {
     return {
       hello: {
-        alias: "",
-        description: "Ask you how are you.",
-        examples: [this.main + "hello"]
-      },
-    }
+        alias: '',
+        description: 'Ask you how are you.',
+        examples: [this.main + 'hello']
+      }
+    };
   }
 }

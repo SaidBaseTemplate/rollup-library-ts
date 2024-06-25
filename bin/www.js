@@ -5,7 +5,7 @@ import inquirer from 'inquirer';
 
 class Commands {
     constructor() {
-        this.main = "rollup-library-ts";
+        this.main = 'rollup-library-ts';
     }
     /**
      * 对外暴露，获取命令集
@@ -13,23 +13,24 @@ class Commands {
     resolve() {
         return {
             hello: {
-                alias: "",
-                description: "Ask you how are you.",
-                examples: [this.main + "hello"]
-            },
+                alias: '',
+                description: 'Ask you how are you.',
+                examples: [this.main + 'hello']
+            }
         };
     }
 }
 
 var name = "rollup-library-ts";
-var version = "0.0.1";
+var version = "1.0.0";
 var description = "rollup library ts template";
 var main$1 = "bin/www.js";
 var type = "module";
 var scripts = {
 	dev: "rimraf bin && rollup -c rollup.config.js -w",
 	build: "rimraf bin && rollup -c rollup.config.js",
-	link: "npm unlink -g rollup-library-ts && npm link"
+	"test:link": "npm unlink -g rollup-library-ts && npm link",
+	format: "prettier --write ."
 };
 var bin = {
 	"rollup-library-ts": "./bin/www.js"
@@ -56,6 +57,7 @@ var devDependencies = {
 	"@rollup/plugin-commonjs": "^26.0.1",
 	"@rollup/plugin-json": "^6.1.0",
 	"@types/inquirer": "^9.0.7",
+	prettier: "^3.3.2",
 	rimraf: "^5.0.7",
 	rollup: "^4.18.0",
 	"rollup-plugin-typescript2": "^0.36.0",
@@ -90,24 +92,24 @@ var myPkg = {
  * @param bold 是否加粗
  */
 const chalkLog = (type, msg, bold) => {
-    let color = "yellow";
-    if (type === "success")
-        color = "green";
-    else if (type === "error")
-        color = "red";
+    let color = 'yellow';
+    if (type === 'success')
+        color = 'green';
+    else if (type === 'error')
+        color = 'red';
     // @ts-ignore
     const handler = bold ? chalk.bold[color](msg) : chalk[color](msg);
     return console.log(handler);
 };
 class Logger {
     success(msg, bold = false) {
-        return chalkLog("success", msg, bold);
+        return chalkLog('success', msg, bold);
     }
     warn(msg, bold = false) {
-        return chalkLog("warn", msg, bold);
+        return chalkLog('warn', msg, bold);
     }
     error(msg, bold = false) {
-        return chalkLog("error", msg, bold);
+        return chalkLog('error', msg, bold);
     }
 }
 
@@ -115,11 +117,11 @@ const helloExec = async () => {
     const logger = new Logger();
     const answer = await inquirer.prompt([
         {
-            message: "Hello, how are you?",
-            type: "confirm",
-            name: "isOver",
-            default: "false",
-        },
+            message: 'Hello, how are you?',
+            type: 'confirm',
+            name: 'isOver',
+            default: 'false'
+        }
     ]);
     if (answer.isOver) {
         logger.success('Goodbye!');
@@ -137,9 +139,9 @@ function main() {
     // 初始化日志
     const logger = new Logger();
     // 初始化命令行参数
-    program.name("rollup-library-ts").description("A cli tool for library");
+    program.name('rollup-library-ts').description('A cli tool for library');
     // 设置命令在前，选项在后
-    program.version("rollup-library-ts" + "@" + myPkg.version).usage("<command> [option]");
+    program.version('rollup-library-ts' + '@' + myPkg.version).usage('<command> [option]');
     // 初始化命令行参数
     const commands = new Commands();
     const commandResolves = commands.resolve();
@@ -152,7 +154,7 @@ function main() {
             .action(function (name, { args }) {
             try {
                 // 除了上述的命令，其他统统匹配到这里
-                if (key === "*")
+                if (key === '*')
                     return logger.error(description);
                 // @ts-ignore
                 return execs[key](args);

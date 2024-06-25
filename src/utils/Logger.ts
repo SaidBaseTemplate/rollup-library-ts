@@ -1,4 +1,4 @@
-import chalk from "chalk";
+import chalk from 'chalk';
 
 /**
  * 打印
@@ -7,22 +7,22 @@ import chalk from "chalk";
  * @param bold 是否加粗
  */
 const chalkLog = (type: string, msg: string, bold: boolean) => {
-  let color = "yellow"
-  if (type === "success") color = "green"
-  else if (type === "error") color = "red"
+  let color = 'yellow';
+  if (type === 'success') color = 'green';
+  else if (type === 'error') color = 'red';
   // @ts-ignore
-  const handler = bold ? chalk.bold[color](msg) : chalk[color](msg)
-  return console.log(handler)
-}
+  const handler = bold ? chalk.bold[color](msg) : chalk[color](msg);
+  return console.log(handler);
+};
 
 export default class Logger {
   success(msg: string, bold: boolean = false) {
-    return chalkLog("success", msg, bold)
+    return chalkLog('success', msg, bold);
   }
   warn(msg: string, bold: boolean = false) {
-    return chalkLog("warn", msg, bold)
+    return chalkLog('warn', msg, bold);
   }
   error(msg: string, bold: boolean = false) {
-    return chalkLog("error", msg, bold)
+    return chalkLog('error', msg, bold);
   }
 }

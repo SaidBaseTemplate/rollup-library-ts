@@ -1,6 +1,5 @@
-import { helloExec } from './hello'
-
+import { helloExec } from './hello';
 
 export default {
   hello: helloExec
-}
+};
