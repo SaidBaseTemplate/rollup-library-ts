@@ -1,6 +1,6 @@
 {
   "name": "rollup-library-ts",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "rollup library ts template",
   "main": "bin/www.js",
   "type": "module",
