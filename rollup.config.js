@@ -24,6 +24,10 @@ export default [
         entries: [{ find: '@', replacement: path.resolve(projectRootDir, 'src') }]
       })
     ],
-    output: [{ file: 'bin/www.js', format: 'esm' }]
+    output: [
+      { file: 'bin/www.js', format: 'esm' },
+      { file: 'bin/www.cjs', format: 'cjs' },
+      { file: 'bin/www.umd', format: 'umd' }
+    ]
   }
 ];

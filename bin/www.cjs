@@ -1,7 +1,9 @@
 #!/usr/bin/env node
-import { program } from 'commander';
-import chalk from 'chalk';
-import inquirer from 'inquirer';
+'use strict';
+
+var commander = require('commander');
+var chalk = require('chalk');
+var inquirer = require('inquirer');
 
 class Commands {
     constructor() {
@@ -162,15 +164,15 @@ function main() {
     // 初始化日志
     const logger = new Logger();
     // 初始化命令行参数
-    program.name('rollup-library-ts').description('A cli tool for library');
+    commander.program.name('rollup-library-ts').description('A cli tool for library');
     // 设置命令在前，选项在后
-    program.version('rollup-library-ts' + '@' + myPkg.version).usage('<command> [option]');
+    commander.program.version('rollup-library-ts' + '@' + myPkg.version).usage('<command> [option]');
     // 初始化命令行参数
     const commands = new Commands();
     const commandResolves = commands.resolve();
     for (let key in commandResolves) {
         const { alias, description } = commandResolves[key];
-        program
+        commander.program
             .command(key) // 注册命令
             .alias(alias) // 配置命令别名
             .description(description) // 配置命令描述
@@ -189,6 +191,6 @@ function main() {
     }
     // 解析命令行参数
     // @ts-ignore
-    program.parse(program.argv);
+    commander.program.parse(commander.program.argv);
 }
 main();
