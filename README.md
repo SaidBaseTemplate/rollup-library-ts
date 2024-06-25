@@ -1,14 +1,15 @@
 <div align="center"><h1>rollup-library-ts</h1></div>
 
-<p align="center">
-  <a href="https://github.com/SaidBaseTemplate/rollup-library-ts"><img src="https://img.shields.io/badge/Packing-Rollup-FF3333
-" alt="Rollup"></a>
-  <a href="hhttps://github.com/SaidBaseTemplate/rollup-library-ts"><img src="https://img.shields.io/badge/Language-Typescript-3078C6
-" alt="Language"></a>
-  <a href="https://github.com/SaidBaseTemplate/rollup-library-ts/blob/master/LICENSE"><img src="https://img.shields.io/github/license/SaidBaseTemplate/rollup-library-ts
-" alt="License"></a>
-<a href="hhttps://github.com/SaidBaseTemplate/rollup-library-ts"><img src="https://img.shields.io/github/stars/SaidBaseTemplate/rollup-library-ts" alt="Stars"></a>
-</p>
+<div align="center">
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Rollup](https://img.shields.io/badge/Packing-Rollup-FF3333.svg)](https://github.com/SaidBaseTemplate/rollup-library-ts)
+[![Typescript](https://img.shields.io/badge/Language-Typescript-3078C6.svg)](https://github.com/SaidBaseTemplate/rollup-library-ts)
+[![License](https://img.shields.io/github/license/SaidBaseTemplate/rollup-library-ts)](https://github.com/SaidBaseTemplate/rollup-library-ts/blob/master/LICENSE)
+[![Stars](https://img.shields.io/github/stars/SaidBaseTemplate/rollup-library-ts)](https://github.com/SaidBaseTemplate/rollup-library-ts/blob/master/LICENSE)
+
+</div>
+
 
 ## ✨ 介绍
 
