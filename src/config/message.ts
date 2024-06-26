@@ -19,7 +19,7 @@ export const endMessage = () => {
   logger.info(`Thank you for your use ${LIBRARY_NAME}!`, true);
 };
 
-// 结束信息
+// 错误信息
 export const errorMessage = () => {
   logger.info('');
   logger.info(`If the above does not solve your problem, please check here: ${ISSUE_ADDRESS}!`, true);
