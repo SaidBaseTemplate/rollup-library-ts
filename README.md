@@ -6,7 +6,7 @@
 [![Rollup](https://img.shields.io/badge/Packing-Rollup-FF3333.svg)](https://github.com/SaidBaseTemplate/rollup-library-ts)
 [![Typescript](https://img.shields.io/badge/Language-Typescript-3078C6.svg)](https://github.com/SaidBaseTemplate/rollup-library-ts)
 [![License](https://img.shields.io/github/license/SaidBaseTemplate/rollup-library-ts)](https://github.com/SaidBaseTemplate/rollup-library-ts/blob/master/LICENSE)
-[![Stars](https://img.shields.io/github/stars/SaidBaseTemplate/rollup-library-ts)](https://github.com/SaidBaseTemplate/rollup-library-ts/blob/master/LICENSE)
+[![Stars](https://img.shields.io/github/stars/SaidBaseTemplate/rollup-library-ts)](https://github.com/SaidBaseTemplate/rollup-library-ts)
 
 </div>
 
