@@ -35,21 +35,35 @@
 项目的主要文件和目录结构如下：
 
 ```
-my-lib
-├── dist/                    # 构建输出目录
-├── src/                     # 源代码目录
-│   └── index.ts             # 入口文件
-├── tests/                   # 测试文件目录
-│   └── index.test.ts        # 测试文件
-├── .gitignore               # Git 忽略文件配置
-├── jest.config.js           # Jest 配置文件
-├── package.json             # 项目配置文件
-├── README.md                # 项目说明文件
-├── rollup.config.js         # Rollup 配置文件
-└── tsconfig.json            # TypeScript 配置文件
+rollup-library-ts
+├── .husky/                    # husky脚本目录
+├── bin/                       # 构建输出目录
+│   └── www.js                 # ESM产物
+│   └── www.cjs                # CJS产物
+│   └── www.umd                # UMD产物
+├── src/                       # 源代码目录
+│   └── common/                # 公共方法目录
+│   └── config/                # 配置目录
+│   └── exec/                  # 命令执行方法目录
+│   └── utils/                 # 工具函数目录
+│   └── main.ts                # 入口文件
+├── .gitignore                 # Git 忽略文件配置
+├── .prettierignore            # prettier 忽略文件配置
+├── .prettierrc                # prettier 配置文件
+├── .versionrc                 # standard-version 配置文件
+├── CHANGELOG.md               # 版本更新文档
+├── commitlint.config.js       # commitlint 配置文件
+├── LICENSE                    # 开源协议
+├── package.json               # NPM 配置
+├── pnpm-lock.yaml             # PNPM 依赖锁定文件
+├── README.md                  # 项目说明文件
+├── rollup.config.js           # Rollup 配置文件
+└── tsconfig.json              # TypeScript 配置文件
 ```
 
 ## 快速开始
+
+[said-cli](https://github.com/guizimo/said-cli) 是一个快速拉取模板的脚手架工具，旨在简化和加速项目的初始化过程。
 
 使用 `said-cli` 创建一个基于 `rollup-library-ts` 模板的新项目。
 
@@ -113,7 +127,9 @@ npm unlink
 npm unlink -g  rollup-library-ts
 ```
 
+## 更新日志
 
+[**Changelog**](./changelog.md) - 查看项目的更新日志
 
 ## 贡献
 
