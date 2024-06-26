@@ -4,10 +4,16 @@
 var commander = require('commander');
 var chalk = require('chalk');
 var inquirer = require('inquirer');
+var figlet = require('figlet');
+
+// 库名称
+const LIBRARY_NAME = 'rollup-library-ts';
+// issue 地址
+const ISSUE_ADDRESS = 'https://github.com/SaidBaseTemplate/rollup-library-ts/issues';
 
 class Commands {
     constructor() {
-        this.main = 'rollup-library-ts';
+        this.main = LIBRARY_NAME;
     }
     /**
      * 对外暴露，获取命令集
@@ -24,7 +30,7 @@ class Commands {
 }
 
 var name = "rollup-library-ts";
-var version = "1.1.0";
+var version = "1.2.0";
 var description = "rollup library ts template";
 var main$1 = "bin/www.js";
 var type = "module";
@@ -36,8 +42,6 @@ var scripts = {
 	release: "standard-version",
 	"release:major": "standard-version --release-as major",
 	"release:minor": "standard-version --release-as minor",
-	"changelog:all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-	"changelog:last-tag": "conventional-changelog -p angular -i CHANGELOG.md -s",
 	prepare: "husky install"
 };
 var bin = {
@@ -66,9 +70,9 @@ var devDependencies = {
 	"@rollup/plugin-babel": "^6.0.4",
 	"@rollup/plugin-commonjs": "^26.0.1",
 	"@rollup/plugin-json": "^6.1.0",
+	"@types/figlet": "^1.5.8",
 	"@types/inquirer": "^9.0.7",
 	commitizen: "^4.3.0",
-	"conventional-changelog-cli": "^5.0.0",
 	"cz-conventional-changelog": "^3.3.0",
 	husky: "^9.0.11",
 	"lint-staged": "^15.2.7",
@@ -83,6 +87,7 @@ var devDependencies = {
 var dependencies = {
 	chalk: "^5.3.0",
 	commander: "^12.1.0",
+	figlet: "^1.7.0",
 	inquirer: "^9.2.23"
 };
 var config = {
@@ -120,26 +125,71 @@ const chalkLog = (type, msg, bold) => {
     let color = 'yellow';
     if (type === 'success')
         color = 'green';
+    else if (type === 'info')
+        color = 'blue';
     else if (type === 'error')
         color = 'red';
     // @ts-ignore
     const handler = bold ? chalk.bold[color](msg) : chalk[color](msg);
     return console.log(handler);
 };
+/**
+ * 日志类
+ */
 class Logger {
+    // 成功
     success(msg, bold = false) {
         return chalkLog('success', msg, bold);
     }
+    // 输出
+    info(msg, bold = false) {
+        return chalkLog('info', msg, bold);
+    }
+    // 警告
     warn(msg, bold = false) {
         return chalkLog('warn', msg, bold);
     }
+    // 错误
     error(msg, bold = false) {
         return chalkLog('error', msg, bold);
     }
 }
 
+// 初始化日志服务
+const logger$1 = new Logger();
+// 欢迎信息
+const welcomeMessage = () => {
+    logger$1.info('');
+    logger$1.info(figlet.textSync(LIBRARY_NAME, {}), true);
+    logger$1.info(`Welcome to ${LIBRARY_NAME}!`);
+    logger$1.info('');
+};
+// 结束信息
+const endMessage = () => {
+    logger$1.info('');
+    logger$1.info(`Thank you for your use ${LIBRARY_NAME}!`, true);
+};
+// 结束信息
+const errorMessage = () => {
+    logger$1.info('');
+    logger$1.info(`If the above does not solve your problem, please check here: ${ISSUE_ADDRESS}!`, true);
+};
+
+// 初始化日志服务
+const logger = new Logger();
 const helloExec = async () => {
-    const logger = new Logger();
+    try {
+        welcomeMessage();
+        await hello();
+        endMessage();
+    }
+    catch (e) {
+        logger.error(e.message);
+        errorMessage();
+        process.exit(0);
+    }
+};
+const hello = async () => {
     const answer = await inquirer.prompt([
         {
             message: 'Hello, how are you?',
@@ -164,11 +214,12 @@ function main() {
     // 初始化日志
     const logger = new Logger();
     // 初始化命令行参数
-    commander.program.name('rollup-library-ts').description('A cli tool for library');
-    // 设置命令在前，选项在后
-    commander.program.version('rollup-library-ts' + '@' + myPkg.version).usage('<command> [option]');
+    commander.program.name(LIBRARY_NAME).description('A rollup library ts template.');
+    // 配置版本信息
+    commander.program.version(LIBRARY_NAME + '@' + myPkg.version).usage('<command> [option]');
     // 初始化命令行参数
     const commands = new Commands();
+    // 获取命令列表
     const commandResolves = commands.resolve();
     for (let key in commandResolves) {
         const { alias, description } = commandResolves[key];
@@ -178,9 +229,10 @@ function main() {
             .description(description) // 配置命令描述
             .action(function (name, { args }) {
             try {
-                // 除了上述的命令，其他统统匹配到这里
+                // 未注册的命令
                 if (key === '*')
                     return logger.error(description);
+                // 执行命令
                 // @ts-ignore
                 return execs[key](args);
             }
@@ -193,4 +245,5 @@ function main() {
     // @ts-ignore
     commander.program.parse(commander.program.argv);
 }
+// 执行主函数
 main();
