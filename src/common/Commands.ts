@@ -1,8 +1,10 @@
+import { LIBRARY_NAME } from '@/config/config';
+
 export default class Commands {
   main: string;
 
   constructor() {
-    this.main = 'rollup-library-ts';
+    this.main = LIBRARY_NAME;
   }
 
   /**
