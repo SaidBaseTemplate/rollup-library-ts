@@ -129,7 +129,7 @@ npm unlink -g  rollup-library-ts
 
 ## 更新日志
 
-[**Changelog**](./changelog.md) - 查看项目的更新日志
+[**Changelog**](./CHANGELOG.md) - 查看项目的更新日志
 
 ## 贡献
 
